@@ -46,6 +46,7 @@ export default function Cart() {
         </Link>
       </section>
     );
+    
   return (
     <section className="sec cart-page">
       <span className="eyebrow">A FEW GOOD STORIES, READY TO GO</span>
