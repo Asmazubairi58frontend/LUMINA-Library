@@ -1,11 +1,6 @@
-
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  Float,
-  ContactShadows,
-} from "@react-three/drei";
+import { Environment, Float, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 
 function Shelf({ x, z, rotation = 0 }) {
@@ -54,7 +49,9 @@ function Shelf({ x, z, rotation = 0 }) {
         >
           <boxGeometry args={[0.31, 0.95 + (i % 4) * 0.08, 0.43]} />
           <meshStandardMaterial
-            color={["#641d31", "#9a6a36", "#2f3b35", "#7a3440", "#c0a06a"][i % 5]}
+            color={
+              ["#641d31", "#9a6a36", "#2f3b35", "#7a3440", "#c0a06a"][i % 5]
+            }
             roughness={0.4}
           />
         </mesh>
@@ -62,10 +59,7 @@ function Shelf({ x, z, rotation = 0 }) {
 
       {/* ردیف دوم کتاب‌ها */}
       {books.map((i) => (
-        <mesh
-          key={`b${i}`}
-          position={[-2.48 + i * 0.39, 1.18, 0.03]}
-        >
+        <mesh key={`b${i}`} position={[-2.48 + i * 0.39, 1.18, 0.03]}>
           <boxGeometry args={[0.31, 0.8 + (i % 4) * 0.07, 0.43]} />
           <meshStandardMaterial
             color={["#7c3441", "#bd965a", "#3c4940", "#5c182c"][i % 4]}
@@ -90,31 +84,28 @@ function Room({ progress }) {
       rig.current.position.z,
       targetZ,
       2.2,
-      delta
+      delta,
     );
 
     rig.current.position.y = THREE.MathUtils.damp(
       rig.current.position.y,
       2.2 + Math.sin(p * Math.PI) * 0.3,
       2,
-      delta
+      delta,
     );
 
     rig.current.rotation.y = THREE.MathUtils.damp(
       rig.current.rotation.y,
       Math.sin(p * Math.PI * 1.4) * 0.11,
       2,
-      delta
+      delta,
     );
   });
 
   return (
     <group ref={rig} position={[0, 2.2, 7.5]}>
       {/* کف فروشگاه */}
-      <mesh
-        position={[0, -2.25, -3]}
-        rotation={[-Math.PI / 2, 0, 0]}
-      >
+      <mesh position={[0, -2.25, -3]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[40, 40]} />
         <meshStandardMaterial color="#241018" roughness={0.82} />
       </mesh>
@@ -148,21 +139,11 @@ function Room({ progress }) {
       </mesh>
 
       {/* کتاب شناور */}
-      <Float
-        speed={1.1}
-        rotationIntensity={0.12}
-        floatIntensity={0.25}
-      >
-        <group
-          position={[0, 1.2, -5]}
-          rotation={[0.08, 0.18, -0.12]}
-        >
+      <Float speed={1.1} rotationIntensity={0.12} floatIntensity={0.25}>
+        <group position={[0, 1.2, -5]} rotation={[0.08, 0.18, -0.12]}>
           <mesh>
             <boxGeometry args={[1.35, 0.22, 1.8]} />
-            <meshStandardMaterial
-              color="#a16a3c"
-              roughness={0.45}
-            />
+            <meshStandardMaterial color="#a16a3c" roughness={0.45} />
           </mesh>
 
           <mesh position={[0, 0.13, 0]}>
