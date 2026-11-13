@@ -7,7 +7,7 @@
 
 .bk {
     position: absolute;
-    inset: 0;
+    inset: 1;
     transform-style: preserve-3d;
     transform: rotateY(var(--rot));
     transition: transform .45s cubic-bezier(.2, .9, .3, 1)
