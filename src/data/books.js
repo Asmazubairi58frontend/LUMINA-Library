@@ -14,7 +14,22 @@ const raw = [
   ["On Being Briefly Infinite", "Sofia Marchetti", "Philosophy", 14.99, 4.7],
   ["Salt & Sonnets", "Idris Okoye", "Literature", 13.5, 4.4],
 ];
-///////////
+export const chapters = [
+  "The Threshold",
+  "What the Pages Remember",
+  "A Quiet Revolution",
+  "Where the Map Ends",
+];
+const S = [
+  "The first thing you notice is how little this book asks of you; it simply waits, patient as a lit window.",
+  "Every chapter opens with a question and refuses to hurry toward the answer.",
+  "Evidence is gathered slowly, the way a river gathers stones.",
+  "By the time the idea arrives, you feel you have always known it.",
+  "There is a particular quiet that settles over a room when someone reads well.",
+  "Notice how the argument turns: not with force, but with a change of light.",
+  "Nothing here is wasted; even the pauses are load-bearing.",
+  "Close the book and the questions follow you into the evening, unhurried and kind.",
+];
 export const books = raw.map(([title, author, cat, price, rating], i) => ({
   id: i + 1,
   title,
