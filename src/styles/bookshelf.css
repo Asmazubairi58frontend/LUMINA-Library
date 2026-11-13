@@ -1,243 +1,253 @@
 .b3d {
-    position: relative;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    flex: none
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  flex: none;
 }
 
 .bk {
-    position: absolute;
-    inset: 1;
-    transform-style: preserve-3d;
-    transform: rotateY(var(--rot));
-    transition: transform .45s cubic-bezier(.2, .9, .3, 1)
+  position: absolute;
+  inset: 1;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--rot));
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
 
 .f {
-    position: absolute;
-    backface-visibility: hidden
+  position: absolute;
+  backface-visibility: hidden;
 }
 
 .front,
 .back {
-    inset: 0
+  inset: 0;
 }
 
 .front {
-    transform: translateZ(calc(var(--d)/2));
-    border-radius: 2px 5px 5px 2px;
-    padding: 12px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #f4ecd8;
-    overflow: hidden;
-    box-shadow: inset 3px 0 6px rgba(0, 0, 0, .45), inset -1px 0 2px rgba(255, 255, 255, .2)
+  transform: translateZ(calc(var(--d) / 2));
+  border-radius: 2px 5px 5px 2px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f4ecd8;
+  overflow: hidden;
+  box-shadow:
+    inset 3px 0 6px rgba(0, 0, 0, 0.45),
+    inset -1px 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .front i {
-    position: absolute;
-    inset: 6px;
-    border: 1px solid rgba(240, 216, 143, .55);
-    pointer-events: none
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(240, 216, 143, 0.55);
+  pointer-events: none;
 }
 
 .front small {
-    font-size: .58rem;
-    opacity: .8;
-    letter-spacing: .08em;
-    text-transform: uppercase
+  font-size: 0.58rem;
+  opacity: 0.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .front strong {
-    font: 700 .95rem/1.1 'Cormorant Garamond', serif;
-    color: #f0d88f
+  font:
+    700 0.95rem/1.1 "Cormorant Garamond",
+    serif;
+  color: #f0d88f;
 }
 
 .front em {
-    font-size: .5rem;
-    letter-spacing: .35em;
-    color: #f0d88f
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  color: #f0d88f;
 }
 
 .back {
-    transform: rotateY(180deg) translateZ(calc(var(--d)/2))
+  transform: rotateY(180deg) translateZ(calc(var(--d) / 2));
 }
 
 .spine {
-    top: 0;
-    left: 0;
-    width: var(--d);
-    height: 100%;
-    transform: translateX(calc(var(--d)/-2)) rotateY(-90deg);
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border-left: 2px solid rgba(240, 216, 143, .4)
+  top: 0;
+  left: 0;
+  width: var(--d);
+  height: 100%;
+  transform: translateX(calc(var(--d) / -2)) rotateY(-90deg);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-left: 2px solid rgba(240, 216, 143, 0.4);
 }
 
 .spine span {
-    writing-mode: vertical-rl;
-    color: #f0d88f;
-    font: 700 .72rem 'Cormorant Garamond', serif;
-    white-space: nowrap;
-    max-height: 90%;
-    overflow: hidden
+  writing-mode: vertical-rl;
+  color: #f0d88f;
+  font:
+    700 0.72rem "Cormorant Garamond",
+    serif;
+  white-space: nowrap;
+  max-height: 90%;
+  overflow: hidden;
 }
 
 .pages {
-    top: 3px;
-    bottom: 3px;
-    left: 0;
-    width: var(--d);
-    transform: translateX(calc(var(--w) - var(--d)/2)) rotateY(90deg);
-    background: repeating-linear-gradient(90deg, #f5ecd5 0 2px, #d9cdb0 2px 3px)
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: var(--d);
+  transform: translateX(calc(var(--w) - var(--d) / 2)) rotateY(90deg);
+  background: repeating-linear-gradient(90deg, #f5ecd5 0 2px, #d9cdb0 2px 3px);
 }
 
 /* library */
 .lib {
-    padding: 0 12px 60px
+  padding: 0 12px 60px;
 }
 
 .tools {
-    max-width: 1000px;
-    margin: 0 auto 26px;
-    padding: 14px 18px;
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: center
+  max-width: 1000px;
+  margin: 0 auto 26px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .room {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    perspective: 1400px;
-    padding: 30px 14px 40px;
-    border-radius: 14px;
-    background: linear-gradient(var(--wood2), var(--bg2));
-    box-shadow: inset 0 0 90px rgba(0, 0, 0, .5), 0 0 80px rgba(212, 160, 60, .12)
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  perspective: 1400px;
+  padding: 30px 14px 40px;
+  border-radius: 14px;
+  background: linear-gradient(var(--wood2), var(--bg2));
+  box-shadow:
+    inset 0 0 90px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(212, 160, 60, 0.12);
 }
 
 .roomin {
-    transform-style: preserve-3d;
-    transition: transform .4s
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
 }
 
 .shelf {
-    margin-bottom: 26px
+  margin-bottom: 26px;
 }
 
 .row3d {
-    display: flex;
-    gap: 26px;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 0 10px;
-    min-height: 210px;
-    overflow-x: auto;
-    overflow-y: visible;
-    padding-top: 60px;
-    transform-style: preserve-3d
+  display: flex;
+  gap: 26px;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 10px;
+  min-height: 210px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-top: 60px;
+  transform-style: preserve-3d;
 }
 
 .board {
-    height: 20px;
-    border-radius: 3px;
-    background: linear-gradient(var(--wood1), var(--wood2));
-    box-shadow: 0 14px 24px rgba(0, 0, 0, .55), inset 0 2px 0 rgba(255, 255, 255, .15)
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(var(--wood1), var(--wood2));
+  box-shadow:
+    0 14px 24px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15);
 }
 
 .slot {
-    position: relative;
-    flex: none;
-    perspective: 700px;
-    filter: drop-shadow(6px 8px 6px rgba(0, 0, 0, .5))
+  position: relative;
+  flex: none;
+  perspective: 700px;
+  filter: drop-shadow(6px 8px 6px rgba(0, 0, 0, 0.5));
 }
 
 .slot .tip {
-    position: absolute;
-    bottom: 105%;
-    left: 50%;
-    transform: translate(-50%, 10px);
-    width: 170px;
-    background: var(--bg);
-    border: 1px solid var(--gold);
-    border-radius: 10px;
-    padding: 8px 10px;
-    font-size: .72rem;
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: .25s;
-    z-index: 5;
-    display: grid;
-    gap: 2px
+  position: absolute;
+  bottom: 105%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  width: 170px;
+  background: var(--bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.72rem;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  z-index: 5;
+  display: grid;
+  gap: 2px;
 }
 
 .slot:hover .tip {
-    opacity: 1;
-    transform: translate(-50%, 0)
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .slot:hover .bk {
-    transform: rotateY(-42deg) translateZ(40px) translateY(-6px)
+  transform: rotateY(-42deg) translateZ(40px) translateY(-6px);
 }
 
 .slot:hover {
-    filter: drop-shadow(0 0 14px var(--glow))
+  filter: drop-shadow(0 0 14px var(--glow));
 }
 
 .floor {
-    height: 50px;
-    margin: 0 -14px -40px;
-    background: linear-gradient(var(--wood1), var(--wood2));
-    transform: rotateX(60deg);
-    transform-origin: top
+  height: 50px;
+  margin: 0 -14px -40px;
+  background: linear-gradient(var(--wood1), var(--wood2));
+  transform: rotateX(60deg);
+  transform-origin: top;
 }
 
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, .65);
-    z-index: 90;
-    display: grid;
-    place-items: center;
-    padding: 16px;
-    animation: pin .3s
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  animation: pin 0.3s;
 }
 
 .modal3 {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 760px;
-    width: 100%;
-    padding: 24px;
-    background: var(--bg2)
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 760px;
+  width: 100%;
+  padding: 24px;
+  background: var(--bg2);
 }
 
 .x {
-    position: absolute;
-    top: 10px;
-    right: 10px
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-@media(max-width:640px) {
-    .modal3 {
-        grid-template-columns: 1fr;
-        max-height: 92vh;
-        overflow: auto
-    }
+@media (max-width: 640px) {
+  .modal3 {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+    overflow: auto;
+  }
 
-    .room {
-        perspective: none
-    }
+  .room {
+    perspective: none;
+  }
 
-    .roomin {
-        transform: none !important
-    }
+  .roomin {
+    transform: none !important;
+  }
 }
