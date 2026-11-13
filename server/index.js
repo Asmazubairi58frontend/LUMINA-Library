@@ -1,0 +1,6 @@
+import express from 'express';
+const app=express();app.use(express.json({limit:'1mb'}));
+app.post('/api/assistant',async(req,res)=>{
+ if(!process.env.ANTHROPIC_API_KEY)return res.status(503).json({error:'AI provider key is not configured.'});
+ try{const {messages=[],book}=req.body;const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':process.env.ANTHROPIC_API_KEY,'anthropic-version':'2023-06-01'},body:JSON.stringify({model:'claude-3-5-haiku-latest',max_tokens:700,system:`You are LUMORA's literary assistant. Answer in clear English. Be accurate and never invent book passages. Selected book: ${book?.title||'none'} by ${book?.author||'unknown'}. If no book text is supplied, distinguish general knowledge from text-specific claims.`,messages})});const data=await r.json();if(!r.ok)return res.status(r.status).json({error:data.error?.message||'AI provider error'});res.json({answer:data.content?.filter(x=>x.type==='text').map(x=>x.text).join('\n')||'No answer returned.'});}catch(e){res.status(500).json({error:'AI service request failed.'})}
+});app.listen(process.env.PORT||8787,()=>console.log(`LUMORA API listening on ${process.env.PORT||8787}`));

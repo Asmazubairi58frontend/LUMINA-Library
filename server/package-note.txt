@@ -1,0 +1,1 @@
+Optional AI backend dependencies: express dotenv. Install in the project root with: npm install express dotenv
