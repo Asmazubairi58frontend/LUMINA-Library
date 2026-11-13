@@ -3,7 +3,7 @@ import { books, cats } from '../data/books'; import BookShelf from '../component
 export default function Library() {
     const [sp] = useSearchParams(); const [q, setQ] = useState(''); const [c, setC] = useState(sp.get('c') || 'All'); const [sel, setSel] = useState(null); const [ry, setRy] = useState(0);
     const { add, toggleFav, favs } = useStore(); const nav = useNavigate();
-    const list = useMemo(() => books.filter(b => (c === 'All' || b.cat === c) && (b.title + b.author).toLowerCase().includes(q.toLowerCase())), [q, c]);
+    const list = useMemo(() => books.filter(b => (c === 'Al' || b.cat === c) && (b.title + b.author).toLowerCase().includes(q.toLowerCase())), [q, c]);
     const rows = []; for (let i = 0; i < list.length; i += 5)rows.push(list.slice(i, i + 5));
     return <section className="lib" onMouseMove={e => setRy((e.clientX / innerWidth - .5) * 8)}>
         <div className="library-heading"><span className="eyebrow">A WORLD OF IDEAS, ONE SHELF AT A TIME</span><h1 className="title">The Library</h1><p>Browse the collection, follow a category, or let a title find you.</p><div className="collection-meta"><span>{list.length} TITLES IN VIEW</span><span>CURATED FOR THE CURIOUS</span><span>EST. 2026</span></div></div>
