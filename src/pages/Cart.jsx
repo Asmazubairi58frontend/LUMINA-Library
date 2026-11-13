@@ -4,6 +4,7 @@ import { Check, BookOpen } from "lucide-react";
 import { books } from "../data/books";
 import CartItem from "../components/CartItem";
 import { useStore } from "../context/Store";
+
 export default function Cart() {
   const { cart, setCart } = useStore();
   const [s, setS] = useState("idle");
@@ -20,6 +21,7 @@ export default function Cart() {
       setCart([]);
     }, 1600);
   };
+
   if (s === "done")
     return (
       <section className="sec text-center">
