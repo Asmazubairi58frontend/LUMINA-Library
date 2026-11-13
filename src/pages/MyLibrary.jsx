@@ -4,6 +4,13 @@ import BookCard from "../components/BookCard";
 export default function MyLibrary({ saved, onSave, onSelect }) {
   return (
     <main className="page-wrap library-page">
+      <div className="page-heading">
+        <span className="eyebrow">YOUR PRIVATE SHELF</span>
+        <h1>
+          Kept <i>close.</i>
+        </h1>
+        <p>Your saved books, gathered in one place.</p>
+      </div>
       {saved.length ? (
         <div className="catalog-grid">
           {saved.map((book) => (
