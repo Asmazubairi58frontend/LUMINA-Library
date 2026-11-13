@@ -24,17 +24,28 @@ export default function Cart() {
 
   if (s === "done")
     if (!items.length)
-      ////////////////////////
       return (
         <section className="sec text-center">
-          <BookOpen size={64} className="gold" />
-          <h2>Your cart is empty</h2>
-          <p>The shelves are waiting.</p>
-          <Link to="/library" className="btn-gold">
-            Browse the Library
+          <div className="okc">
+            <Check size={48} />
+          </div>
+          <h2>Order Confirmed</h2>
+          <p>Your books are now in your reading space.</p>
+          <Link to="/my-space" className="btn-gold">
+            Go to My Space
           </Link>
         </section>
       );
+  return (
+    <section className="sec text-center">
+      <BookOpen size={64} className="gold" />
+      <h2>Your cart is empty</h2>
+      <p>The shelves are waiting.</p>
+      <Link to="/library" className="btn-gold">
+        Browse the Library
+      </Link>
+    </section>
+  );
 
   return (
     <section className="sec cart-page">
