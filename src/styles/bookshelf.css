@@ -26,7 +26,7 @@
 .front {
     transform: translateZ(calc(var(--d)/2));
     border-radius: 2px 5px 5px 2px;
-    padding: 10px 10px;
+    padding: 12px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
