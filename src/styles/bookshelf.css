@@ -112,7 +112,7 @@
 
 .room {
     position: relative;
-    max-width: 1000px;
+    max-width: 100px;
     margin: 0 auto;
     perspective: 1400px;
     padding: 30px 14px 40px;
