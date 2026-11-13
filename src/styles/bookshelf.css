@@ -87,7 +87,7 @@
 
 .pages {
     top: 3px;
-    bottom: 2px;
+    bottom: 3px;
     left: 0;
     width: var(--d);
     transform: translateX(calc(var(--w) - var(--d)/2)) rotateY(90deg);
