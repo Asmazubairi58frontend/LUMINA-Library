@@ -1,4 +1,4 @@
-import {useEffect,useRef,useState} from 'react';import {useSearchParams} from 'react-ruter-dom';
+import {useEffect,useRef,useState} from 'react';import {useSearchParams} from 'react-router-dom';
 import {ChevronLeft,ChevronRight,Bookmark,Maximize} from 'lucide-react';import {books,chapters} from '../data/books';import {useStore} from '../context/Store';
 export default function ReadingRoom(){const [sp,setSp]=useSearchParams();const b=books.find(x=>x.id===+sp.get('b'))||books[4];
  const {marks,toggleMark,setProgress}=useStore();const [t,setT]=useState(0);const [tilt,setTilt]=useState([0,0]);const [z,setZ]=useState(1);const ref=useRef();
@@ -23,4 +23,4 @@ export default function ReadingRoom(){const [sp,setSp]=useSearchParams();const b
   <div className="reading-tip glass"><b>Reader’s note</b><span>Take your time. Your progress and bookmarks are saved automatically.</span></div><div className="rr-ctl glass"><button className="ibtn" aria-label="Previous page" onClick={()=>go(t-1)}><ChevronLeft size={18}/></button>
    <button className={'ibtn '+(mark?'on':'')} aria-label="Bookmark" onClick={()=>toggleMark(b.id,t)}><Bookmark size={16} fill={mark?'currentColor':'none'}/></button>
    <button className="ibtn" aria-label="Fullscreen" onClick={()=>document.fullscreenElement?document.exitFullscreen():ref.current.requestFullscreen?.()}><Maximize size={16}/></button>
-   <button className="ibtn" aria-label="Next page" onClick={()=>go(t+1)}><ChevronRight size={18}/></button></div></section>}
+   <button className="ibtn" aria-label="Next page" onClick={()=>go(t+1)}><ChevronRight size={18}/></button></div></sectio>}
