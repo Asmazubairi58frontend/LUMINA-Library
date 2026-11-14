@@ -3,6 +3,11 @@
   transform-style: preserve-3d;
   cursor: pointer;
   flex: none;
+  width: 190px;
+  height: 260px;
+  position: relative;
+  perspective: 1200px;
+  flex-shrink: 0;
 }
 
 .bk {
