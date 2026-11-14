@@ -2889,3 +2889,149 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =====================================================
+   LUMINA HOME PAGE - LAYOUT FIXES
+   Append this block at the VERY END of index.css
+===================================================== */
+
+/* Define the missing theme variable */
+.lum-home-page {
+  --lum-gold-soft: rgba(212, 180, 106, 0.1);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+:root[data-theme="light"] .lum-home-page {
+  --lum-gold-soft: rgba(154, 111, 30, 0.09);
+}
+
+/* Prevent old global section widths from distorting the page */
+.lum-home-page .lum-home-section,
+.lum-home-page > .lum-home-category-section,
+.lum-home-page > .lum-home-discovery,
+.lum-home-page > .lum-home-editor,
+.lum-home-page > .lum-home-stats,
+.lum-home-page > .lum-home-news-section {
+  box-sizing: border-box;
+  width: min(1200px, calc(100% - 64px));
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Consistent spacing between sections */
+.lum-home-page .lum-home-section {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+/* Fix the book collection grid */
+.lum-home-page .lum-home-books {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.lum-home-page .lum-home-books > * {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent old global styles from changing the hero layout */
+.lum-home-page .lum-home-hero {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lum-home-page .lum-home-hero-content {
+  width: 100%;
+}
+
+/* Keep discovery and editor sections within the same layout */
+.lum-home-page .lum-home-discovery,
+.lum-home-page .lum-home-editor {
+  box-sizing: border-box;
+}
+
+/* Keep newsletter form elements inside their container */
+.lum-home-page .lum-home-news-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lum-home-page .lum-home-news-form input {
+  box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 950px) {
+  .lum-home-page .lum-home-section,
+  .lum-home-page > .lum-home-category-section,
+  .lum-home-page > .lum-home-discovery,
+  .lum-home-page > .lum-home-editor,
+  .lum-home-page > .lum-home-stats,
+  .lum-home-page > .lum-home-news-section {
+    width: calc(100% - 48px);
+  }
+
+  .lum-home-page .lum-home-books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .lum-home-page .lum-home-section,
+  .lum-home-page > .lum-home-category-section,
+  .lum-home-page > .lum-home-discovery,
+  .lum-home-page > .lum-home-editor,
+  .lum-home-page > .lum-home-stats,
+  .lum-home-page > .lum-home-news-section {
+    width: calc(100% - 32px);
+  }
+
+  .lum-home-page .lum-home-books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .lum-home-page .lum-home-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .lum-home-page .lum-home-section-heading {
+    align-items: flex-start;
+  }
+
+  .lum-home-page .lum-home-category-section {
+    border-radius: 18px;
+  }
+
+  .lum-home-page .lum-home-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .lum-home-page .lum-home-books {
+    gap: 8px;
+  }
+
+  .lum-home-page .lum-home-section-heading h2 {
+    font-size: 23px;
+  }
+
+  .lum-home-page .lum-home-view-all {
+    font-size: 8px;
+  }
+}
