@@ -1,5 +1,5 @@
 .rr{position:relative;min-height:calc(100vh - 92px);overflow:hidden;display:grid;place-items:center;background:linear-gradient(180deg,var(--bg2) 0,var(--bg) 55%,var(--wood2) 55%)}
-.aun{position:absolute;inset:0;background:radial-gradient(ellipse at 85% 0,rgba(255,200,110,.35),transparent 55%);pointer-events:none}
+.sun{position:absolute;inset:0;background:radial-gradient(ellipse at 85% 0,rgba(255,200,110,.35),transparent 55%);pointer-events:none}
 .win{position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 90px,rgba(0,0,0,.18) 90px 100px);mask:linear-gradient(180deg,#000,transparent 70%);pointer-events:none;animation:sway 12s ease-in-out infinite alternate}@keyframes sway{to{transform:translateX(30px)}}
 .stage-rr{position:relative;width:100%;height:560px;display:grid;place-items:center;perspective:1800px}
 .desk{position:absolute;bottom:-40px;width:min(980px,96%);height:120px;z-index:-1;border-radius:12px;background:repeating-linear-gradient(90deg,var(--wood1) 0 40px,var(--wood2) 40px 44px);box-shadow:0 30px 60px rgba(0,0,0,.6)}
