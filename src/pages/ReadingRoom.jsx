@@ -23,4 +23,4 @@ export default function ReadingRoom(){const [sp,setSp]=useSearchParams();const b
   <div className="reading-tip glass"><b>Reader’s note</b><span>Take your time. Your progress and bookmarks are saved automatically.</span></div><div className="rr-ctl glass"><button className="ibtn" aria-label="Previous page" onClick={()=>go(t-1)}><ChevronLeft size={18}/></button>
    <button className={'ibtn '+(mark?'on':'')} aria-label="Bookmark" onClick={()=>toggleMark(b.id,t)}><Bookmark size={16} fill={mark?'currentColor':'none'}/></button>
    <button className="ibtn" aria-label="Fullscreen" onClick={()=>document.fullscreenElement?document.exitFullscreen():ref.current.requestFullscreen?.()}><Maximize size={16}/></button>
-   <button className="ibtn" aria-label="Next page" onClick={()=>go(t+1)}><ChevronRight size={18}/></button></div></sectio>}
+   <button className="ibtn" aria-label="Next page" onClick={()=>go(t+1)}><ChevronRight size={18}/></button></div></section>}
