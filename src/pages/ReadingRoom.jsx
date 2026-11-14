@@ -1,4 +1,4 @@
-import {useEffect,useRef,useState} from 'react';import {useSearchParams} from 'react-router-dom';
+import {useEffect,useRef,useState} from 'react';import {useSearchParams} from 'react-ruter-dom';
 import {ChevronLeft,ChevronRight,Bookmark,Maximize} from 'lucide-react';import {books,chapters} from '../data/books';import {useStore} from '../context/Store';
 export default function ReadingRoom(){const [sp,setSp]=useSearchParams();const b=books.find(x=>x.id===+sp.get('b'))||books[4];
  const {marks,toggleMark,setProgress}=useStore();const [t,setT]=useState(0);const [tilt,setTilt]=useState([0,0]);const [z,setZ]=useState(1);const ref=useRef();
