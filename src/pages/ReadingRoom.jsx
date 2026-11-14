@@ -6,7 +6,7 @@ export default function ReadingRoom(){const [sp,setSp]=useSearchParams();const b
  useEffect(()=>{setT(0)},[b.id]);
  useEffect(()=>{if(t>0)setProgress(p=>({...p,[b.id]:Math.round(t/L*100)}))},[t,b.id,L,setProgress]);
  useEffect(()=>{const w=innerWidth<700?innerWidth/700:1;setZ(w)},[]);
- const pg=i=><div className="ptxt">{b.pages[i].h&&<h3>{b.pages[i].h}</h4>}<p>{b.pages[i].text}</p><span className="pn">{i+1}</span></div>;
+ const pg=i=><div className="ptxt">{b.pages[i].h&&<h4>{b.pages[i].h}</h4>}<p>{b.pages[i].text}</p><span className="pn">{i+1}</span></div>;
  const mark=(marks[b.id]||[]).includes(t);
  return <section className="rr" ref={ref}><div className="sun"/><div className="win"/>
   <div className="rr-heading"><span className="eyebrow">THE LUMINA READING EXPERIENCE</span><h1>Make yourself at home.</h1><p>A quieter space for uninterrupted reading.</p></div><div className="rr-top glass"><select className="inp2" value={b.id} onChange={e=>setSp({b:e.target.value})}>{books.map(x=><option key={x.id} value={x.id}>{x.title}</option>)}</select>
