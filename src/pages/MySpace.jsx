@@ -1,113 +1,12 @@
-import { Link } from "react-router-dom";
-import { books } from "../data/books";
-import Book3D from "../components/Book3D";
-import { useStore } from "../context/Store";
-export default function MySpace() {
-  const { favs, marks, progress, goal, setGoal } = useStore();
-  const by = (id) => books.find((b) => b.id === +id);
-  const rec = Object.keys(progress).map(by).filter(Boolean),
-    fav = favs.map(by),
-    saved = Object.keys(marks)
-      .filter((k) => marks[k].length)
-      .map(by);
-  const done = Object.values(progress).filter((p) => p >= 100).length,
-    avg = rec.length
-      ? Math.round(
-          Object.values(progress).reduce((a, b) => a + b, 0) / rec.length,
-        )
-      : 0;
-  const Row = ({ t, l }) => (
-    <div className="mb-5">
-      <h4>{t}</h4>
-      {l.length ? (
-        <div className="d-flex gap-4 flex-wrap">
-          {l.map((b) => (
-            <Link key={b.id} to={"/reading?b=" + b.id}>
-              <Book3D b={b} size={0.7} />
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p className="text-muted">Nothing here yet.</p>
-      )}
-    </div>
-  );
-  return (
-    <section className="sec myspace-page">
-      <span className="eyebrow">YOUR PERSONAL READING JOURNAL</span>
-      <div className="glass prof">
-        <div className="avatar">A</div>
-        <div>
-          <h2 className="m-0">Alex Reader</h2>
-          <small>Member since 2026 · Reader profile</small>
-        </div>
-      </div>
-      <div className="grid4 my-4">
-        {[
-          [rec.length, "Books started"],
-          [done, "Finished"],
-          [avg + "%", "Avg. progress"],
-          [fav.length, "Favorites"],
-        ].map(([n, l]) => (
-          <div key={l} className="glass stat">
-            <b>{n}</b>
-            <span>{l}</span>
-          </div>
-        ))}
-      </div>
-      <div className="glass p-4 mb-5">
-        <h4>Reading goal</h4>
-        <div className="d-flex align-items-center gap-3 flex-wrap">
-          <input
-            type="number"
-            min="1"
-            className="inp2"
-            style={{ width: 80 }}
-            value={goal}
-            onChange={(e) => setGoal(Math.max(1, +e.target.value || 1))}
-          />
-          <span>books this year</span>
-        </div>
-        <div className="prog mt-3">
-          <i style={{ width: Math.min(100, (done / goal) * 100) + "%" }} />
-        </div>
-        <small>
-          {done} of {goal} finished
-        </small>
-      </div>
-      <div className="space-note glass">
-        <span className="eyebrow">YOUR READING RHYTHM</span>
-        <h3>Every page is progress.</h3>
-        <p>
-          Keep your favourite ideas close, return to unfinished chapters, and
-          celebrate the books you complete.
-        </p>
-      </div>
-      <Row t="Recently Read" l={rec} />
-      {rec.length > 0 && (
-        <div className="mb-5">
-          {rec.map((b) => (
-            <div key={b.id} className="mb-2">
-              <small>
-                {b.title} — {progress[b.id]}%
-              </small>
-              <div className="prog">
-                <i style={{ width: progress[b.id] + "%" }} />
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <Row t="Favorite Books" l={fav} />
-      <Row t="Saved (Bookmarked)" l={saved} />
-      <div className="glass p-4" id="about">
-        <h3>About LUMINA</h3>
-        <p>
-          LUMINA is a digital library built to feel like a physical one: shelves
-          you can walk along, books with weight and spines, and pages that turn.
-          Every title opens into a reading room made for slow, focused reading.
-        </p>
-      </div>
-    </section>
-  );
-}
+import {Link} from 'react-router-dom';import {books} from '../data/books';import Book3D from '../components/Book3D';import {useStore} from '../context/Store';
+export default function MySpace(){const {favs,marks,progress,goal,setGoal}=useStore();const by=id=>books.find(b=>b.id===+id);
+ const rec=Object.keys(progress).map(by).filter(Boolean),fav=favs.map(by),saved=Object.keys(marks).filter(k=>marks[k].length).map(by);
+ const done=Object.values(progress).filter(p=>p>=100).length,avg=rec.length?Math.round(Object.values(progress).reduce((a,b)=>a+b,0)/rec.length):0;
+ const Row=({t,l})=><div className="mb-5"><h4>{t}</h4>{l.length?<div className="d-flex gap-4 flex-wrap">{l.map(b=><Link key={b.id} to={'/reading?b='+b.id}><Book3D b={b} size={.7}/></Link>)}</div>:<p className="text-muted">Nothing here yet.</p>}</div>;
+ return <section className="sec myspace-page"><span className="eyebrow">YOUR PERSONAL READING JOURNAL</span><div className="glass prof"><div className="avatar">A</div><div><h2 className="m-0">Alex Reader</h2><small>Member since 2026 · Reader profile</small></div></div>
+  <div className="grid4 my-4">{[[rec.length,'Books started'],[done,'Finished'],[avg+'%','Avg. progress'],[fav.length,'Favorites']].map(([n,l])=><div key={l} className="glass stat"><b>{n}</b><span>{l}</span></div>)}</div>
+  <div className="glass p-4 mb-5"><h4>Reading goal</h4><div className="d-flex align-items-center gap-3 flex-wrap"><input type="number" min="1" className="inp2" style={{width:80}} value={goal} onChange={e=>setGoal(Math.max(1,+e.target.value||1))}/><span>books this year</span></div>
+   <div className="prog mt-3"><i style={{width:Math.min(100,done/goal*100)+'%'}}/></div><small>{done} of {goal} finished</small></div>
+  <div className="space-note glass"><span className="eyebrow">YOUR READING RHYTHM</span><h3>Every page is progress.</h3><p>Keep your favourite ideas close, return to unfinished chapters, and celebrate the books you complete.</p></div><Row t="Recently Read" l={rec}/>{rec.length>0&&<div className="mb-5">{rec.map(b=><div key={b.id} className="mb-2"><small>{b.title} — {progress[b.id]}%</small><div className="prog"><i style={{width:progress[b.id]+'%'}}/></div></div>)}</div>}
+  <Row t="Favorite Books" l={fav}/><Row t="Saved (Bookmarked)" l={saved}/>
+  <div className="glass p-4" id="about"><h3>About LUMINA</h3><p>LUMINA is a digital library built to feel like a physical one: shelves you can walk along, books with weight and spines, and pages that turn. Every title opens into a reading room made for slow, focused reading.</p></div></section>}
